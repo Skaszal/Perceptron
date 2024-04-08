@@ -1,12 +1,24 @@
+from Perceptron import Perceptron
+
+global perceptron
+
+
 def init():
-    pass
+    tmp = float(input("stala uczenia> "))
+    perceptron = Perceptron(tmp, "training.txt")
+    perceptron.train(3000)
+
+
+def guess():
+    inp = input("> ")
+    perceptron.guess(inp)
 
 
 if __name__ == "__main__":
-
     init()
 
     while True:
+        
         print('''
         Wybierz opcje:
         a) wprowadź nowe obserwacje z wiersza poleceń i przewiduj klasę
@@ -14,6 +26,7 @@ if __name__ == "__main__":
         inp = input("> ").lower()
 
         if inp == "a":
-            pass
+            guess()
         if inp == "b":
             break
+
